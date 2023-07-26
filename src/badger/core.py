@@ -2,11 +2,21 @@ import numpy as np
 import logging
 logger = logging.getLogger(__name__)
 from operator import itemgetter
-from .utils import range_to_str, yprint, merge_params, ParetoFront, norm, denorm, \
-     parse_rule
+from .utils import range_to_str, yprint, merge_params, \
+    ParetoFront, norm, denorm, parse_rule
 
 
 def process_raw(raw, rule):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     # filter = rule['filter']
     reducer = rule['reducer']
 
@@ -19,6 +29,16 @@ def process_raw(raw, rule):
 
 
 def normalize_routine(routine):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     # Sanity check and config normalization
     #
     # routine
@@ -107,6 +127,16 @@ def normalize_routine(routine):
 def run_routine(routine, skip_review=False, save=None, verbose=2,
                 before_evaluate=None, after_evaluate=None,
                 env_ready=None, pf_ready=None, states_ready=None):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     # Review the routine
     if not skip_review:
         print('Please review the routine to be run:\n')
@@ -196,6 +226,16 @@ def run_routine(routine, skip_review=False, save=None, verbose=2,
     # Make a normalized evaluate function
 
     def evaluate(X):
+        """
+        A method to 
+
+        Parameters
+        ----------
+    
+        Returns
+        -------
+
+        """
         Y = []  # objectives
         I = []  # inequality constraints
         E = []  # equality constraints
@@ -335,6 +375,16 @@ def run_routine(routine, skip_review=False, save=None, verbose=2,
 
 
 def instantiate_env(env_class, configs, manager=None):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     from .factory import get_intf  # have to put here to avoid circular dependencies
 
     # Configure interface
@@ -365,10 +415,30 @@ def instantiate_env(env_class, configs, manager=None):
 # The following functions are related to domain scaling
 # TODO: consider combine them into a class and make it extensible
 def list_scaling_func():
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     return ['semi-linear', 'sinusoid', 'sigmoid']
 
 
 def get_scaling_default_params(name):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     if name == 'semi-linear':
         default_params = {
             'center': 0.5,
@@ -391,6 +461,16 @@ def get_scaling_default_params(name):
 
 
 def get_scaling_func(configs):
+    """
+    A method to 
+
+    Parameters
+    ----------
+    
+    Returns
+    -------
+
+    """
     if not configs:  # fallback to default
         configs = {'func': 'semi-linear'}
 
